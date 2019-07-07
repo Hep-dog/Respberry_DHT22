@@ -34,6 +34,7 @@ C:  Notes for the configurations for softwares:
 
 
 Useful links for the packages installation:
+
     1.  Adafruit_DHT:
             https://github.com/adafruit/Adafruit_Python_DHT
 
