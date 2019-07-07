@@ -31,3 +31,11 @@ C:  Notes for the configurations for softwares:
     You should add the configuration file for the telegraf to configuring the data format to database:
     telegraf  --config  temperatureLog.conf  (You should give you local IP and you database name for influxdb)
 
+
+
+Useful links for the packages installation:
+    1.  Adafruit_DHT:
+            https://github.com/adafruit/Adafruit_Python_DHT
+
+    2.  Influxdb, Grafana and Telegraf:
+            https://www.terminalbytes.com/temperature-using-raspberry-pi-grafana/
