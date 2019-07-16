@@ -1,0 +1,30 @@
+#!/usr/bin/python
+
+'''
+    This script is used to print the last 60 results of  DHT22/AM2302 sensor for remote servers
+'''
+
+import os, commands
+
+num =40
+
+cmd1 = 'tail -n ' + str(num) + ' /home/pi/Work/DHT22/Run/Log/Temp_Humi.log | awk -F \' \' \'{print $1}\''
+cmd2 = 'tail -n ' + str(num) + ' /home/pi/Work/DHT22/Run/Log/Temp_Humi.log | awk -F \' \' \'{print $2}\''
+cmd3 = 'tail -n ' + str(num) + ' /home/pi/Work/DHT22/Run/Log/Temp_Humi.log | awk -F \' \' \'{print $4}\''
+
+
+(status, dates) = commands.getstatusoutput(cmd1)
+(status, temps) = commands.getstatusoutput(cmd2)
+(status, humis) = commands.getstatusoutput(cmd3)
+
+dates = dates.split('\n')
+temps = temps.split('\n')
+humis = humis.split('\n')
+
+
+for i in range(num):
+    cmd = 'date -d @' + dates[i]
+    (status, result)  = commands.getstatusoutput(cmd)
+    print( result + ":  " + temps[i] + "  and  " + humis[i] )
+
+
