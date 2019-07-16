@@ -4,6 +4,7 @@
 import os, time
 
 cmd = 'python /home/pi/Work/DHT22/Run/run.py'
+#cmd = 'python /home/pi/Work/DHT22/Run/dht22.py'
 for t in range(1, 60, 2):
     #print(t)
     os.system(cmd)
