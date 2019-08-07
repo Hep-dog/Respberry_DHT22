@@ -40,3 +40,27 @@ Useful links for the packages installation:
 
     2.  Influxdb, Grafana and Telegraf:
             https://www.terminalbytes.com/temperature-using-raspberry-pi-grafana/
+
+
+Update (2019/8/8):
+    Find the bug from influxdb: The influxdb process will use huge memory and lead to the system crash.
+    
+    Reason: Since there are old configuration files in /etc/telegraf/telegraf.d directory,
+    the old measurements in database (dht11) will be merged to new database. The large data samples
+    lead to the crash.
+
+    Solution: 
+        1.  remove the un-needed configuration files in /eta/telegraf/telegraf.d/
+
+        2.  the default configuration files for the database of influxdb is /etc/influxdb/influxdb.conf.
+            We can reset the default configurations like:
+            [meta]
+            dir = "/home/pi/Data/Influxdb/DHT22_cleanroom_table/influxdb/meta"
+            [data]
+            dir = "/home/pi/Data/Influxdb/DHT22_cleanroom_table/influxdb/data"
+            wal-dir = "/home/pi/Data/Influxdb/DHT22_cleanroom_table/influxdb/wal"
+
+
+
+
+
