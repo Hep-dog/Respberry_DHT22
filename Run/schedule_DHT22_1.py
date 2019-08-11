@@ -3,9 +3,9 @@
 
 import os, time
 
-cmd = 'python /home/pi/Work/DHT22/Run/run.py'
+cmd = 'python /home/pi/Work/DHT22/Run/run_DHT22_1.py'
 #cmd = 'python /home/pi/Work/DHT22/Run/dht22.py'
-for t in range(1, 60, 2):
+for t in range(1, 60, 30):
     #print(t)
     os.system(cmd)
-    time.sleep(2)
+    time.sleep(30)

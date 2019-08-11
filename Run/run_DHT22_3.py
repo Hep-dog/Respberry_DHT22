@@ -3,13 +3,13 @@ import logging
 import time
 
 
-logging.basicConfig( filename='/home/pi/Work/DHT22/Run/Log/Temp_Humi.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO)
+logging.basicConfig( filename='/home/pi/Work/DHT22/Run/data/Temp_Humi_DHT22_3.log', filemode='a', format='%(created)f %(message)s', level=logging.INFO)
 
 
 def run_collection():
     while True:
         #h, t= dht.read_retry( dht.DHT22, 4 )
-        h, t= dht.read_retry( dht.AM2302, 4 )
+        h, t= dht.read_retry( dht.DHT22, 20 )
         f_h = float(h)
         if t is not None and h is not None:
             if f_h<100:

@@ -8,7 +8,7 @@ import time
 
 def run_collection():
     while True:
-        h, t= dht.read_retry( dht.DHT22, 4 )
+        h, t= dht.read_retry( dht.AM2302, 4 )
         print( t, h)
         break
         #time.sleep(1)

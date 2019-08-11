@@ -41,6 +41,8 @@ Useful links for the packages installation:
     2.  Influxdb, Grafana and Telegraf:
             https://www.terminalbytes.com/temperature-using-raspberry-pi-grafana/
 
+============================================================================================================
+============================================================================================================
 
 Update (2019/8/8):
     Find the bug from influxdb: The influxdb process will use huge memory and lead to the system crash.
@@ -59,8 +61,32 @@ Update (2019/8/8):
             [data]
             dir = "/home/pi/Data/Influxdb/DHT22_cleanroom_table/influxdb/data"
             wal-dir = "/home/pi/Data/Influxdb/DHT22_cleanroom_table/influxdb/wal"
+	   
+    Please NOTE: If you change the output folder of influxdb database, you should:
+                 chown -R influxdb:influxdb  /.... (The new folder)
+                 
+		 If not, you will get the error: influxb  ...permission deny... blabla
 
 
+============================================================================================================
+============================================================================================================
+
+Update (2019/8/10)
+	
+	By using the multiple services method, we use different telegraf configration files,
+	to using 3 DHT22 sensors.
+
+    Each sensor has specific database in influxdb, so we can vitualize the 3 datas in grafana
 
 
+============================================================================================================
+============================================================================================================
 
+
+Updatet (2019/8/11)
+	Some bugs were finded, the data of three sensors droped frequently.
+
+	I guess that it was caused by the parallel using of AdafruitDHT programm and leads to the conflict of some
+	data.
+
+	So I reduce the data reading frequency with 2 times in one minute. And this bugs happended rarely corresponding.
