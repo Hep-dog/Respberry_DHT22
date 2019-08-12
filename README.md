@@ -83,10 +83,30 @@ Update (2019/8/10)
 ============================================================================================================
 
 
-Updatet (2019/8/11)
+Update (2019/8/11)
 	Some bugs were finded, the data of three sensors droped frequently.
 
 	I guess that it was caused by the parallel using of AdafruitDHT programm and leads to the conflict of some
 	data.
 
 	So I reduce the data reading frequency with 2 times in one minute. And this bugs happended rarely corresponding.
+
+
+============================================================================================================
+============================================================================================================
+
+
+Update (2019/8/12)
+	Add some descriptions from other people familar with Adafruit_DHT_reader:
+
+    Link:	www.sopwith.ismellsmoke.net/?p=400
+
+    The Adafruit_DHT.read_retry( sensor, pin ) function call will attempt to read data from the sensor 15 times in 2
+	second intervals. It returns as soon as is has valid data. This means the function call can take up to 30 seconds
+	to return results. After 15 reties it gives up and return None values for the temp and humidity...
+	... If you need a temp/humi reading more than once or twice a minute, this device is not for you.
+
+
+
+
+
