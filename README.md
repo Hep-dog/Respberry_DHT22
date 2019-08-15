@@ -42,9 +42,9 @@ Useful links for the packages installation:
             https://www.terminalbytes.com/temperature-using-raspberry-pi-grafana/
 
 ============================================================================================================
+										Update (2019/8/8):
 ============================================================================================================
 
-Update (2019/8/8):
     Find the bug from influxdb: The influxdb process will use huge memory and lead to the system crash.
     
     Reason: Since there are old configuration files in /etc/telegraf/telegraf.d directory,
@@ -69,9 +69,8 @@ Update (2019/8/8):
 
 
 ============================================================================================================
+											Update (2019/8/10)
 ============================================================================================================
-
-Update (2019/8/10)
 	
 	By using the multiple services method, we use different telegraf configration files,
 	to using 3 DHT22 sensors.
@@ -80,10 +79,8 @@ Update (2019/8/10)
 
 
 ============================================================================================================
+											Update (2019/8/11)
 ============================================================================================================
-
-
-Update (2019/8/11)
 	Some bugs were finded, the data of three sensors droped frequently.
 
 	I guess that it was caused by the parallel using of AdafruitDHT programm and leads to the conflict of some
@@ -93,10 +90,8 @@ Update (2019/8/11)
 
 
 ============================================================================================================
+											Update (2019/8/12)
 ============================================================================================================
-
-
-Update (2019/8/12)
 	Add some descriptions from other people familar with Adafruit_DHT_reader:
 
     Link:	www.sopwith.ismellsmoke.net/?p=400
@@ -106,6 +101,18 @@ Update (2019/8/12)
 	to return results. After 15 reties it gives up and return None values for the temp and humidity...
 	... If you need a temp/humi reading more than once or twice a minute, this device is not for you.
 
+
+============================================================================================================
+											Update (2019/8/15)
+============================================================================================================
+	Add the script to synchronize DHT22 read data to other places.
+	Then we use crontab to run rsync on schedule ( 30min )
+	
+	Note:
+		1. Use ssh-keygen to generate the ssh key (need named as id_rsa), than ssh-copy-id to remote server;
+		2. When using the crontab, you should use the user "pi", which means that you should use:
+			'crontab -e' instead of 'sudo crontab -e'
+	
 
 
 
