@@ -114,6 +114,15 @@ Useful links for the packages installation:
 			'crontab -e' instead of 'sudo crontab -e'
 	
 
+											Update (2019/11/2)
+============================================================================================================
+    Now we want to synchronize the data from different sub sensors to a host (local network).
+    So we trans the data to host using rsync:
+        1. Using the ssh-key to avoid the password request:
+            ssh-keygen; ssh-copy-id the key to host
+        2. rsync -az -e  'ssh -p 26700' --progress /home/pi/Work/DHT22/Run/data/Temp_Humi_DHT22_1.log 
+            root@95.169.9.61:/root/Work/data/Humi_Tempt/DHT22_1
+            (26700 is the ssh port, root@95.169.9.61 is the user and ip address of host)
 
 
 
