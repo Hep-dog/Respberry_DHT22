@@ -114,6 +114,7 @@ Useful links for the packages installation:
 			'crontab -e' instead of 'sudo crontab -e'
 	
 
+============================================================================================================
 											Update (2019/11/2)
 ============================================================================================================
     Now we want to synchronize the data from different sub sensors to a host (local network).
@@ -126,3 +127,19 @@ Useful links for the packages installation:
 
 
 
+============================================================================================================
+											Update (2019/11/3)
+============================================================================================================
+    There is a problem: the telegraf on ubuntu just collect data to influxdb one time!!!
+    I don't know what problem causes this.
+
+    To fix this, I just start the telegraf every 2 seconds using the crontab (see the Start_telegraf.py)
+    Then kill all the telegraf processes every 10 seconds (see the Stop_telegraf.py)
+
+    Note: The data transfer causes 1 second delay, and the telegraf start-up causes about 2 seconds delay,
+          so the total delay of grafana is about 3~4 seconds!!!
+
+
+============================================================================================================
+											Update (2019/11/3)
+============================================================================================================
