@@ -141,5 +141,11 @@ Useful links for the packages installation:
 
 
 ============================================================================================================
-											Update (2019/11/3)
+											Update (2019/12/5)
 ============================================================================================================
+	Adding the config files in Installing directory to install influxdb + grafana + telegraf automatically
+	$ source Setup.sh
+
+
+
+
