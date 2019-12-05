@@ -146,6 +146,15 @@ Useful links for the packages installation:
 	Adding the config files in Installing directory to install influxdb + grafana + telegraf automatically
 	$ source Setup.sh
 
+============================================================================================================
+											Update (2019/12/6)
+============================================================================================================
+
+	Since there will be large log files in the /var/log directory during the influxdb and telegraf running,
+	and the Raspberry Pi system may be stuck due to this reason.
+
+	So the regular cleaning of these files is performed by running the script named "Clean_log.py" in Installing
+	directory, and it will be executed hourly with the crontab
 
 
 
