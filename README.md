@@ -41,9 +41,9 @@ Useful links for the packages installation:
     2.  Influxdb, Grafana and Telegraf:
             https://www.terminalbytes.com/temperature-using-raspberry-pi-grafana/
 
-============================================================================================================
-										Update (2019/8/8):
-============================================================================================================
+===========================================================
+       			Update (2019/8/8):
+===========================================================
 
     Find the bug from influxdb: The influxdb process will use huge memory and lead to the system crash.
     
@@ -68,9 +68,9 @@ Useful links for the packages installation:
 		 If not, you will get the error: influxb  ...permission deny... blabla
 
 
-============================================================================================================
-											Update (2019/8/10)
-============================================================================================================
+===========================================================
+       				Update (2019/8/10)
+===========================================================
 	
 	By using the multiple services method, we use different telegraf configration files,
 	to using 3 DHT22 sensors.
@@ -78,9 +78,9 @@ Useful links for the packages installation:
     Each sensor has specific database in influxdb, so we can vitualize the 3 datas in grafana
 
 
-============================================================================================================
-											Update (2019/8/11)
-============================================================================================================
+===========================================================
+       				Update (2019/8/11)
+===========================================================
 	Some bugs were finded, the data of three sensors droped frequently.
 
 	I guess that it was caused by the parallel using of AdafruitDHT programm and leads to the conflict of some
@@ -89,9 +89,9 @@ Useful links for the packages installation:
 	So I reduce the data reading frequency with 2 times in one minute. And this bugs happended rarely corresponding.
 
 
-============================================================================================================
-											Update (2019/8/12)
-============================================================================================================
+===========================================================
+       				Update (2019/8/12)
+===========================================================
 	Add some descriptions from other people familar with Adafruit_DHT_reader:
 
     Link:	www.sopwith.ismellsmoke.net/?p=400
@@ -102,9 +102,9 @@ Useful links for the packages installation:
 	... If you need a temp/humi reading more than once or twice a minute, this device is not for you.
 
 
-============================================================================================================
-											Update (2019/8/15)
-============================================================================================================
+===========================================================
+       				Update (2019/8/15)
+===========================================================
 	Add the script to synchronize DHT22 read data to other places.
 	Then we use crontab to run rsync on schedule ( 30min )
 	
@@ -114,9 +114,9 @@ Useful links for the packages installation:
 			'crontab -e' instead of 'sudo crontab -e'
 	
 
-============================================================================================================
-											Update (2019/11/2)
-============================================================================================================
+===========================================================
+       				Update (2019/11/2)
+===========================================================
     Now we want to synchronize the data from different sub sensors to a host (local network).
     So we trans the data to host using rsync:
         1. Using the ssh-key to avoid the password request:
@@ -127,9 +127,9 @@ Useful links for the packages installation:
 
 
 
-============================================================================================================
-											Update (2019/11/3)
-============================================================================================================
+===========================================================
+       				Update (2019/11/3)
+===========================================================
     There is a problem: the telegraf on ubuntu just collect data to influxdb one time!!!
     I don't know what problem causes this.
 
@@ -140,15 +140,15 @@ Useful links for the packages installation:
           so the total delay of grafana is about 3~4 seconds!!!
 
 
-============================================================================================================
-											Update (2019/12/5)
-============================================================================================================
+===========================================================
+       				Update (2019/12/5)
+===========================================================
 	Adding the config files in Installing directory to install influxdb + grafana + telegraf automatically
 	$ source Setup.sh
 
-============================================================================================================
-											Update (2019/12/6)
-============================================================================================================
+===========================================================
+       				Update (2019/12/6)
+===========================================================
 
 	Since there will be large log files in the /var/log directory during the influxdb and telegraf running,
 	and the Raspberry Pi system may be stuck due to this reason.
@@ -157,4 +157,9 @@ Useful links for the packages installation:
 	directory, and it will be executed hourly with the crontab
 
 
+===========================================================
+       				Update (2019/12/6)
+===========================================================
+	Add the file to setup influxdb automatically:
+	$python ./Installing/Config_influxdb.py
 
